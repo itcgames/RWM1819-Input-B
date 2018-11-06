@@ -1,3 +1,6 @@
+///Author: David O'Gorman
+//First Feature Inputted
+
 class Game {
 
     constructor()
