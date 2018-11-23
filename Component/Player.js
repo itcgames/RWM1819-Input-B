@@ -19,7 +19,7 @@ class Player {
     {
         
         var canvas = document.getElementById('mycanvas');
-        console.log(canvas);
+       // console.log(canvas);
         var ctx = canvas.getContext("2d");
    
         // fill the square with this (rgb value) colour
@@ -47,39 +47,49 @@ class Player {
 
     update()
     {
-      
+        console.log("updating");
+      if(keyMap[37] === true )
+      {
+          this.x -= 5;
+          console.log("moving");
+      }
+     /* if(keyMap[LThumbLeft] === true)
+      {
+        this.x -= 5;
+        console.log("moving");
+      } */
+
+      if(keyMap[39] === true )
+      {
+          this.x += 5;
+          console.log("moving");
+      }
+
+      if(keyMap[38] === true )
+      {
+          this.y -= 5;
+          console.log("moving");
+      }
+
+      if(keyMap[40] === true )
+      {
+          this.y += 5;
+          console.log("moving");
+      }
+
+      if(keyMap[74] === true )
+      {
+          this.y -= 20 ;
+          console.log("moving");
+      }
+      /*if(keyMap[AButton] == true)
+      {
+          this.y -= 20;
+          console.log("moving");
+      } */
     }
 
-    moveUp() 
-    {
-        console.log("UP");
-        this.y -=10;
-    }
-
-    moveLeft() 
-    {
-       
-        console.log("LEFT");
-        this.x -=10;
-    }
-
-    moveRight()
-    {
-       
-        console.log("RIGHT");
-        this.x += 10;
-    }
-
-    moveDown() 
-    {
-        console.log("DOWN");
-        this.y +=10;
-    }
-
-    Jump()
-    {
-        console.log("Jump");
-        this.y -= 50;
-    }
+  
+  
 
 }

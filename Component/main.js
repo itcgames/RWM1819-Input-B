@@ -8,5 +8,6 @@ function main()
    
     
         game.update();
+      //  game.player.update();
     
 }

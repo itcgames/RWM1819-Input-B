@@ -1,21 +1,10 @@
-class keyboard{
+var keyMap = {}
 
-
-
-
+onkeydown = onkeyup = function(e){
+    e = e || event; // to deal with IE
+    keyMap[e.keyCode] = e.type == 'keydown';
+    /* insert conditional here */
+    console.log(keyMap);
 }
 
-update()
-{
-    if(this.positions.y <= 400)
-    {
-        this.applyForce(0,4);
-    }
-
-}
-
-draw()
-{
-
-
-}
+//var Akey = ;
