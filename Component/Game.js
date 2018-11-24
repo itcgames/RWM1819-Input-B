@@ -1,5 +1,6 @@
 ///Author: David O'Gorman
 //First Feature Inputted
+//Second feature inputted
 
 class Game {
 
@@ -22,7 +23,6 @@ class Game {
        
         var c = canvas.getContext("2d");
         window.addEventListener("keydown", function(e){
-          //  console.log("HIT");
             if([32,37,38,39,40].indexOf(e.keyCode) > -1)
             {
                 e.preventDefault();
@@ -58,35 +58,4 @@ class Game {
 
    
     
-
-    /*keyDownHandler(e)
-    {
-       /* console.log(e.keyCode);
-        switch(e.keyCode){
-            case 38: // Space
-            gameNs.game.player.moveUp();
-            break;
-            case 37:
-            gameNs.game.player.moveLeft();
-            break;
-            case 39:
-            gameNs.game.player.moveRight();
-            break;
-            case 40:
-            gameNs.game.player.moveDown();
-            break;
-            case 32:
-            gameNs.game.player.Jump();
-            break; 
-
-            var KeyboardHelper = { left: 37, up: 38, right: 39, down: 40}
-            
-       // }
-
-
-
-       if(event.key == keyboardHelper.left){
-        leftPresssed = true;
-    }
-    }*/
 }

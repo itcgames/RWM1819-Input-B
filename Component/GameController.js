@@ -1,75 +1,4 @@
 
-
-/*var AButton = 195;
-var BButton = 196;
-var XButton = 197;
-var YButton = 198;
-var View = 208;
-var Start = 207;
-var LBumper  =200;
-var RBumber = 199;
-var LTrigger = 201;
-var RTrigger = 202;
-var LThumbUp = 211;
-var LThumbDown = 212;
-var LThumbLeft = 214;
-var LThumbRight = 213;
-
-
-document.addEventListener("keypress", function(e){
-    switch (e.keyCode) {
-    
-        case 211:  // GamepadLeftThumbstickUp
-        case 203:  // GamepadDPadUp
-            break;
-
-        case 212:  // GamepadLeftThumbstickDown
-        case 204:  // GamepadDPadDown
-            break;
-
-        case 214:  // GamepadLeftThumbstickLeft
-        case 205:  // GamepadDPadLeft
-            break;
-
-        case 213:  // GamepadLeftThumbstickRight
-        case 206:  // GamepadDPadRight
-            break;
-
-        case 195:  // A Button
-            break;
-
-        case 196: // B button
-            break;
-
-        case 197: // X Button
-            break;
-
-        case 198: // Y Button
-            break;
-
-
-        case 208: // View button
-            break;
-
-        case 207: // Menu button
-            break;
-
-
-        case 200: // Left Bumper
-            break;
-
-        case 199: // Right Bumper
-            break;
-
-        case 201: // Left Trigger
-            break;
-
-        case 202: // Right Trigger
-            break;
-    }
-});
-
-*/
 var gamepadInfo = document.getElementById("gamepad-info");
 var ball = document.getElementById("ball");
 var start;
@@ -90,58 +19,85 @@ window.addEventListener("gamepadconnected", function(e) {
 
 if (!('ongamepadconnected' in window)) {
 
-  interval = setInterval(pollGamepads, 500);
+  interval = setInterval(pollGamepads, 50);
 }
 
 function pollGamepads() {
-  console.log(gpd);
+    console.log(gpd);
+  if(gpd.buttons[0].pressed)
+  {
+    console.log("button 0 A Button");
+    gameNs.game.player.y -= 50;
+  }
   if(gpd.buttons[1].pressed)
   {
-    console.log("button 1");
-  }
-  if(gpd.buttons[10].pressed)
-  {
-    console.log("button 10");
+    console.log("button 1 B Button");
   }
   if(gpd.buttons[2].pressed)
   {
-    console.log("button 2");
+    console.log("button 2 X Button");
   }
   if(gpd.buttons[3].pressed)
   {
-    console.log("button 3");
+    console.log("button 3 Y Button");
   }
   if(gpd.buttons[4].pressed)
   {
-    console.log("button 4");
+    console.log("button 4 Left Bumper");
   }
   if(gpd.buttons[5].pressed)
   {
-    console.log("button 5");
+    console.log("button 5 Right Bumper");
   }
   if(gpd.buttons[6].pressed)
   {
-    console.log("button 6");
+    console.log("button 6 Left Trigger");
   }
   if(gpd.buttons[7].pressed)
   {
-    console.log("button 7");
+    console.log("button 7 Right Trigger");
+    gameNs.game.bullet.moving = true;
   }
   if(gpd.buttons[8].pressed)
   {
-    console.log("button 8");
-  }
-  if(gpd.buttons[10].pressed)
-  {
-    console.log("button 10");
+    console.log("button 8 Back Button");
   }
   if(gpd.buttons[9].pressed)
   {
-    console.log("button 9");
+    console.log("button 9 Start Button");
   }
   if(gpd.buttons[10].pressed)
   {
-    console.log("button 10");
+    console.log("button 10 Left Thumbstick Click");
+  }
+  if(gpd.buttons[11].pressed)
+  {
+    console.log("button 11 Right ThumbStick Click");
   } 
+  if(gpd.buttons[12].pressed)
+  {
+    console.log("button 12 D-Pad Up");
+    gameNs.game.player.y -=15;
+  } 
+  if(gpd.buttons[13].pressed)
+  {
+    console.log("button 13 D-Pad Down");
+    gameNs.game.player.y +=15;
+  } 
+  if(gpd.buttons[14].pressed)
+  {
+    console.log("button 14 D-Pad Left");
+    gameNs.game.player.x -=15;
+  } 
+  if(gpd.buttons[15].pressed)
+  {
+    console.log("button 15 D-Pad Right");
+    gameNs.game.player.x +=15;
+  } 
+  if(gpd.buttons[16].pressed)
+  {
+    console.log("button 16");
+  } 
+  
 
 }

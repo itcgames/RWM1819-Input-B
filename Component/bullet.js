@@ -42,6 +42,10 @@ class Bullet {
             {
                 this.moving = true;
             }
+           // if(gpd.buttons[7].ispressed)
+           // {
+           //     this.moving = true;
+          //  }
         }
         else
         {

@@ -21,10 +21,7 @@ class Player {
         var canvas = document.getElementById('mycanvas');
        // console.log(canvas);
         var ctx = canvas.getContext("2d");
-   
-        // fill the square with this (rgb value) colour
         ctx.fillStyle = this.rgb(this.colour[0],this.colour[1],this.colour[2]);
-        // args are x,y,width,height
         ctx.fillRect(this.x, this.y, this.width, this.height);
    
   
@@ -53,11 +50,6 @@ class Player {
           this.x -= 5;
           console.log("moving");
       }
-     /* if(keyMap[LThumbLeft] === true)
-      {
-        this.x -= 5;
-        console.log("moving");
-      } */
 
       if(keyMap[39] === true )
       {
