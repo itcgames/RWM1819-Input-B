@@ -1,6 +1,6 @@
 ///Author: David O'Gorman
 //First Feature Inputted
-//Second feature inputted
+//Second feature inputted. Linked to Jira
 
 class Game {
 

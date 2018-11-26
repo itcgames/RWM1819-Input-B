@@ -1,4 +1,4 @@
-
+// Controller Class
 var gamepadInfo = document.getElementById("gamepad-info");
 var ball = document.getElementById("ball");
 var start;
