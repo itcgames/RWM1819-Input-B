@@ -6,8 +6,14 @@ function main()
     gameNs.game = game;
     game.init();
    
-    
-        game.update();
+    loop();
+        //game.loop();
       //  game.player.update();
     
+}
+function loop()
+{
+    gameNs.game.update();
+    gameNs.game.draw();
+    window.requestAnimationFrame(loop);
 }

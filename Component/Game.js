@@ -29,7 +29,7 @@ class Game {
             }
         }, false); 
         
-
+        this.gamePad= new GameController();
     }
 
     draw()
@@ -45,13 +45,33 @@ class Game {
        
     }
 
+    loop()
+    {
+        this.update();
+        this.draw();
+        window.requestAnimationFrame(this.loop);
+    }
+
     update()
     {
+        var lis = ["A", "B", "X", "Y", "LB", "RB", "LT", "RT",
+                     "Back", "Start","LeftThumbClick", "RightThumbClick", "D-pad Up", 
+                        "D-pad Down", "D-pad Left", "D-Pad Right" ];
+        for (var btn = 0; btn < lis.length; btn++)
+        {
+          //  console.log(this.gamePad);
+            if(this.gamePad.isButtonPressed(lis[btn]))
+            {
+                console.log(lis[btn], "Pressed");
+            }
+        }
+        if(this.gamePad.isButtonPressed("A") ==true)
+        {
+            console.log("A pressed");            
+        }
+       
+        //gameNs.game.bullet.update(gameNs.game.player.x, gameNs.game.player.y);
         
-        gameNs.game.draw();
-        gameNs.game.player.update();
-        gameNs.game.bullet.update(gameNs.game.player.x, gameNs.game.player.y);
-        window.requestAnimationFrame(gameNs.game.update);
 
 
     }
