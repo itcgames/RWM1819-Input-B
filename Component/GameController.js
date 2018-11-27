@@ -98,6 +98,68 @@ function pollGamepads() {
   {
     console.log("button 16");
   } 
-  
+  let xL = gpd.axes[0];
+  let yL = gpd.axes[1];
+  let xR = gpd.axes[2];
+  let yR = gpd.axes[3];
+
+ 
+
+  /*if(y < 0)
+  {
+    console.log("Right stick is being pushed up!");
+
+  }
+  if(y> 0)
+  {
+    console.log("Right stick is being pushed down!");
+  } */
+  xL= setDeadZone(xL);
+  yL= setDeadZone(yL);
+  xR= setDeadZone(xR);
+  yR= setDeadZone(yR);
+
+  if(xL > 0)
+  {
+    gameNs.game.player.x +=15;
+  }
+  if(xL < 0)
+  {
+    gameNs.game.player.x -=15;
+  }
+  if(yL > 0)
+  {
+    gameNs.game.player.y +=15;
+  }
+  if(yL < 0)
+  {
+    gameNs.game.player.y -=15;
+  }
+
+
+
+  console.log("Left stick X(DZ included)" +xL);
+  console.log("Left stick Y( DZ included)" +yL);
+  console.log("Right stick X( DZ included): " +xR);
+  console.log("Right stick Y( DZ included) " + yR);
+
+}
+
+function setDeadZone(v)
+{
+  const dz = 0.2;
+
+  if(Math.abs(v) < dz)
+  {
+    v=0;
+  }
+  else
+  {
+    v= v - Math.sign(v) * dz;
+  }
+    v /= (1.0 - dz);
+
+    return v;
+ 
 
 }

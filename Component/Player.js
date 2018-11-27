@@ -74,6 +74,8 @@ class Player {
           this.y -= 20 ;
           console.log("moving");
       }
+
+     
       /*if(keyMap[AButton] == true)
       {
           this.y -= 20;
@@ -84,4 +86,8 @@ class Player {
   
   
 
+}
+
+if (typeof module !== "undefined") {
+    module.exports = Player;
 }
