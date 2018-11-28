@@ -30,6 +30,7 @@ class Game {
         }, false); 
         
         this.gamePad= new GameController();
+        this.keyPad= new Keyboard();
     }
 
     draw()
@@ -65,13 +66,21 @@ class Game {
                 console.log(lis[btn], "Pressed");
             }
         }
-        if(this.gamePad.isButtonPressed("A") ==true)
-        {
-            console.log("A pressed");            
-        }
        
         //gameNs.game.bullet.update(gameNs.game.player.x, gameNs.game.player.y);
         
+        var list =["1", "2", "3", "4", "5", "6", "Q", "E", "Space", "Enter"];
+
+        for(var btn2=- 0; btn2 < list.length; btn2++)
+        {
+
+            if(this.keyPad.isButtonPressed(list[btn2]))
+            {
+                console.log(list[btn2], "Pressed");
+            }
+
+        }
+
 
 
     }
