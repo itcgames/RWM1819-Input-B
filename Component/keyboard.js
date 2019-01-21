@@ -21,8 +21,31 @@ class Keyboard {
         this.previous = this.current;
         window.addEventListener("keydown", this.onKeyDown.bind(this));
         window.addEventListener("keyup", this.onKeyUp.bind(this));
+        this.pressed = false;
+        this.loops = [];
+        this.holdValue = 2;
+        this.holdTimer = 0;
+        this.keys = [];
+        this.keyHandler = [];
+        this.history = [];
+        this.binds = {};
+        this.lastUpdate = Date.now();
     }
     
+    addUpdateLoop(name, loop) {
+        this.loops.push(name);
+        setInterval(name, loop);
+      }
+    
+      addKeyHandler(name) {
+        this.keyHandlers.push(name);
+      }
+    
+      setHoldValue(val) {
+        this.holdValue = val;
+    }
+
+
     getKeyPad(e)
     {
     console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.",
@@ -39,7 +62,17 @@ class Keyboard {
 
 
     onKeyDown(e) {
-   
+    if (!this.pressed){
+      this.lastUpdate = Date.now();
+    }
+    this.pressed = true;
+
+    var now = Date.now();
+    var dt = now - this.lastUpdate;
+    this.lastUpdate = now;
+    this.holdTimer += dt / 1000;
+    console.log(e.key);
+    console.log(this.holdTimer);
     this.current["Q"] = e.key.toUpperCase() == "Q" ? true : this.current["Q"];;
     this.current["E"] = e.key.toUpperCase() == "E" ? true : this.current["E"];
     this.current["Space"] = e.key.toUpperCase() == " " ? true : this.current["Space"];
@@ -50,6 +83,28 @@ class Keyboard {
     this.current["4"] = e.key.toUpperCase() == "4" ? true : this.current["4"];
     this.current["5"] = e.key.toUpperCase() == "5" ? true : this.current["5"];
     this.current["6"] = e.key.toUpperCase() == "6" ? true : this.current["6"];
+
+   
+    if(!this.keys.includes(e.key)) {
+      this.keys.push(e.key);
+    }
+    for(var key in this.binds) {
+      if(key === e.key) {
+        var func = this.binds[key];
+        func();
+      }
+    }
+
+    // this.keyHandler.forEach(function(element) {
+    //   if(this.holdTimer > this.holdValue) {
+    //     this.holdTimer = 0;
+    //     this.history.push(this.keys.slice());
+    //     element(this.keys);
+      
+    //   }
+     
+    //     });
+
 
     }
 
@@ -65,6 +120,13 @@ class Keyboard {
         this.current["4"] = e.key.toUpperCase() == "4" ? false : this.current["4"];
         this.current["5"] = e.key.toUpperCase() == "5" ? false : this.current["5"];
         this.current["6"] = e.key.toUpperCase() == "6" ? false : this.current["6"];
-        }
+        
+        var index = this.keys.indexOf(e.key);
+        if (index > -1) {
+          this.keys.splice(index, 1);
+          this.holdTimer =0;
+         }
+
+     }
 
 }

@@ -1,8 +1,5 @@
 class Player {
 
-
-   
-
     constructor(x, y, width, height, colour) 
     {
         this.x = x;
@@ -11,20 +8,15 @@ class Player {
         this.height = height;
         this.colour = colour;
         this.speed = 5;
-      
-      
     }
 
     render()
-    {
-        
+    { 
         var canvas = document.getElementById('mycanvas');
        // console.log(canvas);
         var ctx = canvas.getContext("2d");
         ctx.fillStyle = this.rgb(this.colour[0],this.colour[1],this.colour[2]);
         ctx.fillRect(this.x, this.y, this.width, this.height);
-   
-  
     }
 
     rgb(r, g, b)
@@ -74,18 +66,7 @@ class Player {
           this.y -= 20 ;
           console.log("moving");
       }
-
-     
-      /*if(keyMap[AButton] == true)
-      {
-          this.y -= 20;
-          console.log("moving");
-      } */
     }
-
-  
-  
-
 }
 
 if (typeof module !== "undefined") {
