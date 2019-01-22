@@ -69,7 +69,8 @@ class Game {
        
         //gameNs.game.bullet.update(gameNs.game.player.x, gameNs.game.player.y);
         
-        var list =["1", "2", "3", "4", "5", "6", "Q", "E", "Space", "Enter"];
+        var list =["1", "2", "3", "4", "5", "6", "Q", "E", "Space", "Enter", "ArrowUp",
+                    "ArrowDown", "ArrowLeft", "ArrowRight"];
 
         for(var btn2=- 0; btn2 < list.length; btn2++)
         {
