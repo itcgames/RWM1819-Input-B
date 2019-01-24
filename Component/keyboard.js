@@ -82,7 +82,6 @@ class Keyboard {
   this.current["ArrowDown"] = e.key.toUpperCase() == "ARROWDOWN" ? true : this.current["ArrowDown"];
   this.current["ArrowLeft"] = e.key.toUpperCase() == "ARROWLEFT" ? true : this.current["ArrowLeft"];
   this.current["ArrowRight"] = e.key.toUpperCase() == "ARROWRIGHT" ? true : this.current["ArrowRight"];
-
  
     if(!this.keys.includes(e.key))
     {
