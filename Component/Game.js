@@ -7,13 +7,11 @@ class Game {
     constructor()
     {
         this.player = new Player(100, 500, 50, 60, 1);
-        this.bullet = new Bullet(this.player.x, this.player.y, 50, 60, 1);
-        
+        this.bullet = new Bullet(this.player.x, this.player.y, 50, 60, 1);  
     }
 
     init()
     {
-      
         //document.addEventListener("keydown", gameNs.game.keyDownHandler);
         var canvas = document.createElement("canvas");
         canvas.id = 'mycanvas';
@@ -31,6 +29,19 @@ class Game {
         
         this.gamePad= new GameController();
         this.keyPad= new Keyboard();
+
+
+    this.moveU = this.moveU.bind(this);
+	this.moveD = this.moveD.bind(this);
+	this.moveL = this.moveL.bind(this);
+    this.moveR = this.moveR.bind(this);
+    this.shoot = this.shoot.bind(this);
+
+	this.keyPad.bind(this.moveU, "ArrowUp");
+	this.keyPad.bind(this.moveD, "ArrowDown");
+	this.keyPad.bind(this.moveL, "ArrowLeft");
+    this.keyPad.bind(this.moveR, "ArrowRight");
+    this.keyPad.bind(this.shoot, " ");
     }
 
     draw()
@@ -42,8 +53,7 @@ class Game {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         this.player.render();
-        this.bullet.render();
-       
+        this.bullet.render();   
     }
 
     loop()
@@ -66,7 +76,6 @@ class Game {
                 console.log(lis[btn], "Pressed");
             }
         }
-       
         //gameNs.game.bullet.update(gameNs.game.player.x, gameNs.game.player.y);
         
         var list =["1", "2", "3", "4", "5", "6", "Q", "E", "Space", "Enter", "ArrowUp",
@@ -74,18 +83,36 @@ class Game {
 
         for(var btn2=- 0; btn2 < list.length; btn2++)
         {
-
             if(this.keyPad.isButtonPressed(list[btn2]))
             {
                 console.log(list[btn2], "Pressed");
             }
-
         }
-
-
-
     }
 
-   
+     moveUp() 
+     {
+        this.player.y -= 5;
+     }
+    
+     moveDown() 
+     {
+        this.player.y += 5;
+     }
+    
+     moveLeft() 
+     {
+        this.player.x -= 5;
+     }
+    
+     moveRight() 
+     {
+        this.player.x += 5;
+     }
+
+     shoot()
+     {
+         this.bullet.update();
+     }
     
 }

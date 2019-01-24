@@ -1,15 +1,3 @@
-/*var keyMap = {}
-
-onkeydown = onkeyup = function(e){
-    e = e || event; // to deal with IE
-    keyMap[e.keyCode] = e.type == 'keydown';
-    /* insert conditional here 
-    console.log(keyMap);
-}   */
-
-//var Akey = ;
-
-
 class Keyboard {
 
   constructor() {
@@ -22,6 +10,7 @@ class Keyboard {
       this.previous = this.current;
       window.addEventListener("keydown", this.onKeyDown.bind(this));
       window.addEventListener("keyup", this.onKeyUp.bind(this));
+      window.addEventListener("mousemove", this.mousePos.bind(this));
       this.pressed = false;
       this.loops = [];
       this.holdValue = 2;
@@ -31,6 +20,8 @@ class Keyboard {
       this.history = [];
       this.binds = {};
       this.lastUpdate = Date.now();
+      this.mouseDirection = null;
+
   }
   
   addUpdateLoop(name, loop) {
@@ -46,7 +37,6 @@ class Keyboard {
       this.holdValue = val;
   }
 
-
   getKeyPad(e)
   {
   console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.",
@@ -59,6 +49,10 @@ class Keyboard {
   isButtonPressed(button)
   {
   return this.current[button];
+  }
+
+  bind(func, key) {
+    this.binds[key] = func;
   }
 
 
@@ -90,26 +84,17 @@ class Keyboard {
   this.current["ArrowRight"] = e.key.toUpperCase() == "ARROWRIGHT" ? true : this.current["ArrowRight"];
 
  
-  if(!this.keys.includes(e.key)) {
-    this.keys.push(e.key);
-  }
-  for(var key in this.binds) {
-    if(key === e.key) {
-      var func = this.binds[key];
-      func();
+    if(!this.keys.includes(e.key))
+    {
+      this.keys.push(e.key);
     }
-  }
-
-  // this.keyHandler.forEach(function(element) {
-  //   if(this.holdTimer > this.holdValue) {
-  //     this.holdTimer = 0;
-  //     this.history.push(this.keys.slice());
-  //     element(this.keys);
-    
-  //   }
-   
-  //     });
-
+    for(var key in this.binds) 
+    {
+      if(key === e.key) {
+        var func = this.binds[key];
+        func();
+      }
+    }
 
   }
 
@@ -139,5 +124,21 @@ class Keyboard {
        }
 
    }
+
+   mousePos (e)
+   {
+    
+   e = e || window.event;
+
+    var pageX = e.pageX;
+    var pageY = e.pageY;
+
+    if (pageX === undefined) {
+      pageX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+      pageY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+    }
+    console.log(pageX, pageY);
+ }
+
 
 }
