@@ -5,7 +5,7 @@
      
      
     this.gpd = undefined;
-  
+    this.loops = [];
     this.gamepadInfo = document.getElementById("gamepad-info");
     
   
@@ -31,6 +31,11 @@
       interval = setInterval(() => this.pollGamepads(), 50);
     }
 
+  }
+
+  addUpdateLoop(name, loop) {
+    this.loops.push(name);
+    setInterval(name, loop);
   }
 
   getGamePad(e)
@@ -74,8 +79,6 @@
       this.current["D-Pad Left"] = this.gpd.buttons[14].pressed;
       this.current["D-Pad Right"] = this.gpd.buttons[15].pressed;
       this.current["Button 16"] = this.gpd.buttons[16].pressed;
-
-    
 
       let xL = this.gpd.axes[0];
       let yL = this.gpd.axes[1];

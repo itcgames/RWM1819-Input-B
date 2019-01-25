@@ -16,11 +16,11 @@ class Keyboard {
       this.holdValue = 2;
       this.holdTimer = 0;
       this.keys = [];
-      this.keyHandler = [];
+      this.keyHandlers = [];
       this.history = [];
       this.binds = {};
       this.lastUpdate = Date.now();
-      this.mouseDirection = null;
+     // this.mouseDirection = new Vector2();;
 
   }
   
@@ -29,8 +29,8 @@ class Keyboard {
       setInterval(name, loop);
     }
   
-    addKeyHandler(name) {
-      this.keyHandlers.push(name);
+    addKeyHandler() {
+      this.keyHandlers.push(this.keys);
     }
   
     setHoldValue(val) {
@@ -137,6 +137,9 @@ class Keyboard {
       pageY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
     }
     console.log(pageX, pageY);
+ //this.mouseDirection = new Vector2(pageX, pageY);
+  //  getMouse(e);
+
  }
 
 
