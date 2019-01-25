@@ -20,8 +20,6 @@ class Keyboard {
       this.history = [];
       this.binds = {};
       this.lastUpdate = Date.now();
-     // this.mouseDirection = new Vector2();;
-
   }
   
   addUpdateLoop(name, loop) {
@@ -126,7 +124,7 @@ class Keyboard {
 
    mousePos (e)
    {
-    
+    //console.log(e);
    e = e || window.event;
 
     var pageX = e.pageX;
@@ -137,9 +135,13 @@ class Keyboard {
       pageY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
     }
     console.log(pageX, pageY);
- //this.mouseDirection = new Vector2(pageX, pageY);
-  //  getMouse(e);
-
+    //this.mouseDirection = new Vector2(pageX, pageY);
+ 
+    //this.mousePos = {x: e.pageX[0].clientX, y: e.pageY[1].clientY};
+    
+ }
+ getMousePos() {
+  return  this.mousePos = {x: e.pageX, y: e.pageY};
  }
 
 

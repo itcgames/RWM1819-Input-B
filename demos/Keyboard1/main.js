@@ -13,7 +13,7 @@ function main() {
 	this.secondKey = "ArrowDown";
 	this.secondPressed = false;
 
-	this.thirdKey = " ";
+	this.thirdKey = "ArrowLeft";
 	this.thirdPressed = false;
 
 	this.initCanvas();
@@ -24,13 +24,12 @@ function main() {
 	this.moveD = this.moveD.bind(this);
 	this.moveL = this.moveL.bind(this);
     this.moveR = this.moveR.bind(this);
-    this.shoot = this.shoot.bind(this);
+   // this.shoot = this.shoot.bind(this);
 
-	this.keyPad.bind(this.moveU, "ArrowUp");
-	this.keyPad.bind(this.moveD, "ArrowDown");
-	this.keyPad.bind(this.moveL, "ArrowLeft");
-    this.keyPad.bind(this.moveR, "ArrowRight");
-    this.keyPad.bind(this.shoot, " ");
+	this.input.bind(this.moveU, "ArrowUp");
+	this.input.bind(this.moveD, "ArrowDown");
+	this.input.bind(this.moveL, "ArrowLeft");
+  
 }
 
 function initCanvas() {
@@ -50,23 +49,46 @@ function draw() {
 	this.ctx.fillText("Keyboard Demo", 10, 50);
 	this.ctx.fillText("Please press the UP ARROW", 10, 100);
 	this.ctx.fillText("Please press the DOWN ARROW", 10, 150);
-	this.ctx.fillText("Please press the SPACE BAR", 10, 200);
+	this.ctx.fillText("Please press the LEFT ARROW", 10, 200);
 	if(this.firstPressed) {
-        this.ctx.drawImage(this.img, 100, 100, 150, 180);
+        this.ctx.drawImage(this.img, 310, 80, 40, 40);
         console.log("DRAWING");
 	}
 	if(this.secondPressed) {
-		this.ctx.drawImage(this.img, 600, 200, 150, 180);
+		this.ctx.drawImage(this.img, 310, 120, 40, 40);
 	}
 	if(this.thirdPressed) {
-		this.ctx.drawImage(this.img, 800, 340, 150, 180);
+		this.ctx.drawImage(this.img, 310, 180, 40, 40);
 	}
 	if(this.thirdPressed) {
-		this.ctx.fillText("Complete", 10, 650);
+		this.ctx.fillText("Complete", 10, 300);
     }
     
     this.player.render();
 }
+
+function moveU() {
+    this.y -= 3;
+    this.firstPressed = true;
+    console.log("called");
+}
+
+function moveD() {
+    this.y += 3;
+    this.secondPressed = true;
+}
+
+function moveL() {
+    this.x -= 3;
+    this.thirdPressed = true;
+}
+
+function moveR() {
+	this.x += 3;
+}
+
+
+
 
 function myGetKeys(keys) {
 	if(keys.length > 0) {
