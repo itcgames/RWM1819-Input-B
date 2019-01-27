@@ -13,7 +13,7 @@ function main() {
 	this.secondKey = "ArrowDown";
 	this.secondPressed = false;
 
-	this.thirdKey = "ArrowLeft";
+	this.thirdKey = " ";
 	this.thirdPressed = false;
 
 	this.initCanvas();
@@ -23,13 +23,11 @@ function main() {
     this.moveU = this.moveU.bind(this);
 	this.moveD = this.moveD.bind(this);
 	this.moveL = this.moveL.bind(this);
-    this.moveR = this.moveR.bind(this);
-   // this.shoot = this.shoot.bind(this);
-
+    
 	this.input.bind(this.moveU, "ArrowUp");
 	this.input.bind(this.moveD, "ArrowDown");
 	this.input.bind(this.moveL, "ArrowLeft");
-  
+   
 }
 
 function initCanvas() {
@@ -67,6 +65,7 @@ function draw() {
     this.player.render();
 }
 
+
 function moveU() {
     this.y -= 3;
     this.firstPressed = true;
@@ -86,9 +85,6 @@ function moveL() {
 function moveR() {
 	this.x += 3;
 }
-
-
-
 
 function myGetKeys(keys) {
 	if(keys.length > 0) {
