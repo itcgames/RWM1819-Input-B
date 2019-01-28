@@ -38,6 +38,10 @@
     setInterval(name, loop);
   }
 
+  addbuttonHandler() {
+    this.keyHandlers.push(this.keys);
+  }
+
   getGamePad(e)
   {
     console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.",

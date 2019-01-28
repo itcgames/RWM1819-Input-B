@@ -12,10 +12,15 @@ function main() {
     this.thirdPressed = false;
     
     this.input.addUpdateLoop(draw, 33);
+    this.input.addButtonHandler();
     this.canvas = {};
 	this.initCanvas();
 	this.image = new Image();
-	this.image.src = "../../Component/ASSETS/star.png";
+    this.image.src = "../../Component/ASSETS/star.png";
+    
+    this.input.bind(this.moveU, "ArrowUp");
+	this.input.bind(this.moveD, "ArrowDown");
+	this.input.bind(this.moveL, "ArrowLeft");
 }
 
 function initCanvas() {
