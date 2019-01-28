@@ -1,77 +1,140 @@
 /* global rwm1819InputB, describe, it, expect, should */
 
-describe('keyDownHandler()', function () {
+describe('moveU()', function () {
   'use strict';
-  let game;
-  beforeEach(() => {
-    game = new Game();
-    //DO setup here
-  })
 
   it('exists', function () {
-    expect(game.keyDownHandler).to.be.a('function');
-  });
-
-
-});
-
-
-
-describe('moveUp()', function () {
-  'use strict';
-  let game;
-  beforeEach(() => {
-    game = new Game();
-    //DO setup here
-  })
-
-  it('exists', function () {
-    expect(game.player.moveUp).to.be.a('function');
+  if(typeof moveU === "function")
+  {
+    moveU();
+    expect(true);
+  }
+  else{
+    expect(false);
+  }
   });
 
 });
 
 
-describe('moveDown()', function () {
+describe('moveD()', function () {
   'use strict';
-  let game;
-  beforeEach(() => {
-    game = new Game();
-    //DO setup here
-  })
 
-  it('exists', function () {
-    expect(game.player.moveDown).to.be.a('function');
+   it('exists', function () {
+  if(typeof moveD === "function")
+  {
+    moveD();
+    expect(true);
+  }
+  else{
+    expect(false);
+  }
   });
 
 });
 
 
-describe('moveLeft()', function () {
-  'use strict';
-  let game;
-  beforeEach(() => {
-    game = new Game();
-    //DO setup here
-  })
+describe('moveL()', function () {
 
   it('exists', function () {
-    expect(game.player.moveLeft).to.be.a('function');
+    if(typeof moveL === "function")
+    {
+      moveL();
+      expect(true);
+    }
+    else{
+      expect(false);
+    }
   });
 
 });
 
 
-describe('moveRight()', function () {
-  'use strict';
-  let game;
-  beforeEach(() => {
-    game = new Game();
-    //DO setup here
-  })
-
+describe('moveR()', function () {
   it('exists', function () {
-    expect(game.player.moveRight).to.be.a('function');
+    if(typeof moveR === "function")
+    {
+      moveR();
+      expect(true);
+    }
+    else{
+      expect(false);
+    }
+  });
+
+});
+
+describe('myGetKeys()', function () {
+  it('exists', function () {
+    if(typeof myGetKeys === "function")
+    {
+      myGetKeys();
+      expect(true);
+    }
+    else{
+      expect(false);
+    }
+  });
+
+});
+
+describe('onKeyDown()', function () {
+  it('exists', function () {
+    if(typeof onKeyDown === "function")
+    {
+      onKeyDown();
+      expect(true);
+    }
+    else{
+      expect(false);
+    }
+  });
+
+});
+
+
+
+
+describe('onKeyUp()', function () {
+  it('exists', function () {
+    if(typeof onKeyUp === "function")
+    {
+      onKeyUp();
+      expect(true);
+    }
+    else{
+      expect(false);
+    }
+  });
+
+});
+
+
+describe('mousePos', function () {
+  it('exists', function () {
+    if(typeof mousePos === "function")
+    {
+      mousePos();
+      expect(true);
+    }
+    else{
+      expect(false);
+    }
+  });
+
+});
+
+
+describe('getMousePos', function () {
+  it('exists', function () {
+    if(typeof getMousePos === "function")
+    {
+      getMousePos();
+      expect(true);
+    }
+    else{
+      expect(false);
+    }
   });
 
 });

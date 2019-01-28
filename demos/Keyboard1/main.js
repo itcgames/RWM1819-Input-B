@@ -49,20 +49,20 @@ function draw() {
 	this.ctx.fillText("Please press the DOWN ARROW", 10, 150);
 	this.ctx.fillText("Please press the LEFT ARROW", 10, 200);
 	if(this.firstPressed) {
-        this.ctx.drawImage(this.img, 310, 80, 40, 40);
+        this.ctx.drawImage(this.img, 310, 75, 40, 40);
         console.log("DRAWING");
 	}
 	if(this.secondPressed) {
-		this.ctx.drawImage(this.img, 310, 120, 40, 40);
+		this.ctx.drawImage(this.img, 310, 115, 40, 40);
 	}
 	if(this.thirdPressed) {
-		this.ctx.drawImage(this.img, 310, 180, 40, 40);
+		this.ctx.drawImage(this.img, 310, 170, 40, 40);
 	}
 	if(this.thirdPressed) {
 		this.ctx.fillText("Complete", 10, 300);
     }
     
-    this.player.render();
+   
 }
 
 

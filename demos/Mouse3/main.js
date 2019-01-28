@@ -9,11 +9,14 @@ function main()
 
     this.image = new Image();
     this.image.src = "../../Component/ASSETS/Block.png";
-    this.image.width = 480;
-    this.image.height = 480;
-    this.pos = [200,200];
+    this.image.width = 300;
+    this.image.height = 300;
+    this.image.x = 500;
+    this.image.y = 500;
+    this.pos = [500,500];
     this.hit = false;
-    this.currentPos = this.pos;
+    this.input.pos;
+    this.checkHover(this.image);
 
 }
 
@@ -30,34 +33,40 @@ function initCanvas() {
 
 
 
-function checkHover(currentPos, image){
-    ///if(Math.sqrt(((this.input.x - (this.pos.x + (this.image.width / 2))) * (this.input.x - (this.pos.x + (this.image.width / 2))))
-//	+ ((this.input.y - (this.pos.y + (this.image.height / 2))) * (this.input.y - (this.pox.y + (this.image.height / 2))))) < 100) {
-    if(currentPos.x < image.x + image.width && 
-        currentPos.x + 10 > image.x &&
-        currentPos.y < image.y + image.height && 
-        currentPos.y + 10 > image.y)
+function checkHover(currentPos){
+    
+    console.log(this.input.getMousePos());
+   
+    if(this.input.pos.x < currentPos.x + currentPos.width && 
+        this.input.pos.x + 10 > currentPos.x &&
+        this.input.pos.y < currentPos.y + currentPos.height && 
+        this.input.pos.y + 10 > currentPos.y)
     {
 		if(!this.hit) {
             this.hit = true;
-            this.ctx.fillText("Demo Complete", 250,300);
-		}	
+       //     this.ctx.fillText("Demo Complete", 250,300);
+        }
+        if(this.hit)
+        {
+            console.log("hit");
+
+        }
 	}
 }
 
 
 function draw() 
-{
+{ this.checkHover(this.image);
     this.ctx.clearRect(0,0,700,800);
-    this.ctx.fillText("Demo for the mouse", 100,55);
-    this.ctx.fillText("Please move mouse over Square", 100,100);
+    this.ctx.fillText("Demo for the mouse", 300,55);
+    this.ctx.fillText("Please move mouse over Square", 300,100);
   //  console.log("drawing");
     if(!this.hit){
-        this.ctx.drawImage(this.image, this.currentPos[0], this.currentPos[1], 200,200);
+        this.ctx.drawImage(this.image, this.image.x, this.image.y, this.image.width, this.image.height);
     }
 
     if(this.hit === true){
-        this.ctx.fillText("Demo Complete", 150,300);
+        this.ctx.fillText("Demo Complete", 550,300);
         console.log("hit!!!!!!!");
     }
 }

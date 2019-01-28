@@ -7,8 +7,22 @@ class Game {
     constructor()
     {
         this.player = new Player(100, 500, 50, 60, 1);
-        this.bullet = new Bullet(this.player.x, this.player.y, 50, 60, 1);  
+       // this.bullet = new Bullet(this.player.x, this.player.y, 50, 60, 1);  
+        this.gamePad= new GameController();
+        this.keyPad= new Keyboard();
+
+
+        this.moveU = this.moveU.bind(this);
+	    this.moveD = this.moveD.bind(this);
+	    this.moveL = this.moveL.bind(this);
+        this.moveR = this.moveR.bind(this);
+        this.shoot = this.shoot.bind(this);
+
+	   
     }
+
+
+
 
     init()
     {
@@ -27,21 +41,14 @@ class Game {
             }
         }, false); 
         
-        this.gamePad= new GameController();
-        this.keyPad= new Keyboard();
+      
 
-
-    this.moveU = this.moveU.bind(this);
-	this.moveD = this.moveD.bind(this);
-	this.moveL = this.moveL.bind(this);
-    this.moveR = this.moveR.bind(this);
-    this.shoot = this.shoot.bind(this);
-
-	this.keyPad.bind(this.moveU, "ArrowUp");
-	this.keyPad.bind(this.moveD, "ArrowDown");
-	this.keyPad.bind(this.moveL, "ArrowLeft");
-    this.keyPad.bind(this.moveR, "ArrowRight");
-    this.keyPad.bind(this.shoot, " ");
+        this.keyPad.bind(this.moveU, "ArrowUp");
+	    this.keyPad.bind(this.moveD, "ArrowDown");
+	    this.keyPad.bind(this.moveL, "ArrowLeft");
+        
+        this.keyPad.bind(this.moveR, "ArrowRight");
+        this.keyPad.bind(this.shoot, " ");
     }
 
     draw()
@@ -90,22 +97,22 @@ class Game {
         }
     }
 
-     moveUp() 
+     moveU() 
      {
         this.player.y -= 5;
      }
     
-     moveDown() 
+     moveD() 
      {
         this.player.y += 5;
      }
     
-     moveLeft() 
+     moveL() 
      {
         this.player.x -= 5;
      }
     
-     moveRight() 
+     moveR() 
      {
         this.player.x += 5;
      }

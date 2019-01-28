@@ -20,6 +20,7 @@ class Keyboard {
       this.history = [];
       this.binds = {};
       this.lastUpdate = Date.now();
+      this.pos = {'x': 40000, 'y': 90000};
   }
   
   addUpdateLoop(name, loop) {
@@ -137,11 +138,11 @@ class Keyboard {
     console.log(pageX, pageY);
     //this.mouseDirection = new Vector2(pageX, pageY);
  
-    //this.mousePos = {x: e.pageX[0].clientX, y: e.pageY[1].clientY};
+    this.pos = {'x': pageX, 'y': pageY};
     
  }
  getMousePos() {
-  return  this.mousePos = {x: e.pageX, y: e.pageY};
+  return this.pos;
  }
 
 

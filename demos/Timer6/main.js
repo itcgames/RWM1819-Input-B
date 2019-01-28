@@ -93,18 +93,20 @@ function draw() {
     this.ctx.fillText("Press and hold a Key to track timer ", 10, 90);
     if(this.firstPressed) {
       //  this.ctx.drawImage(this.img, 310, 80, 40, 40);
-        this.ctx.fillText("Key Holding " + this.holdTimer.toString(2), 10, 50);
-        this.ctx.drawImage(this.img, 310, 80, 40, 40);
+        this.ctx.fillText("Key Holding " + this.input.holdTimer, 10, 50);
+      //  this.ctx.drawImage(this.img, 310, 80, 40, 40);
+
+        this.ctx.font()
         console.log("DRAWING");
 	}
 	if(this.secondPressed) {
         //this.ctx.drawImage(this.img, 310, 120, 40, 40);
         this.ctx.fillText("Key Holding ", 10, 50);
-        this.ctx.drawImage(this.img, 310, 120, 40, 40);
+     //   this.ctx.drawImage(this.img, 310, 120, 40, 40);
 	}
 	if(this.thirdPressed) {
         //this.ctx.drawImage(this.img, 310, 180, 40, 40);
         this.ctx.fillText("Key Holding ", 10, 50);
-        this.ctx.drawImage(this.img, 310, 180, 40, 40);
+      //  this.ctx.drawImage(this.img, 310, 180, 40, 40);
 	}
 }

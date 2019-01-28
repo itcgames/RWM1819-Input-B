@@ -40,6 +40,8 @@
 
   addbuttonHandler() {
     this.keyHandlers.push(this.keys);
+
+   // this.binds[key];
   }
 
   getGamePad(e)
