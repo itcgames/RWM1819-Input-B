@@ -14,7 +14,7 @@
                       "LeftThumbClick":false, "RightThumbClick":false, "D-pad Up":false, 
                       "D-pad Down":false, "D-pad Left":false, "D-Pad Right":false};
 
-    this.previous = this.current;
+                      this.previous = this.current;
     window.addEventListener("gamepadconnected", this.getGamePad.bind(this));
     //window.addEventListener("gamepadconnected", function(e) {
         //console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.",
@@ -55,19 +55,20 @@
     //Takes in a string
     isButtonPressed(button)
     {
-      console.log(this.current[button]);
+      //console.log(this.current[button]);
       return this.current[button];
     }
 
 
    pollGamepads() {
     //  if(gpd.buttons[0].pressed)
-     // {
-      // console.log("button 0 A Button");
-      // gameNs.game.player.y -= 50;
+    //  {
+    //   console.log("button 0 A Button");
+    //   gameNs.game.player.y -= 50;
+    //  }
 
-    if(this.gpd !== undefined)
-    {
+   // if(this.gpd !== undefined)
+   // {
       //}
       this.current["A"] = this.gpd.buttons[0].pressed;
       this.current["B"] = this.gpd.buttons[1].pressed;
@@ -115,7 +116,7 @@
       }
       */
 
-    }
+  //  }
      /// console.log("Left stick X(DZ included)" +xL);
      // console.log("Left stick Y( DZ included)" +yL);
      // console.log("Right stick X( DZ included): " +xR);

@@ -6,7 +6,7 @@ function main() {
 	
     this.canvas = {};
 
-    this.input.addUpdateLoop(draw, 33);
+    this.input.addUpdateLoop(draw, 23);
     this.Ginput.addKeyHandler(this.keys);
     this.input.isButtonPressed();
 
@@ -17,7 +17,7 @@ function main() {
     this.secondPressed = false;
     this.third = 3;
     this.thirdPressed = false;
-    
+    this.update();
    
  //   this.input.addButtonHandler();
 	this.initCanvas();
@@ -48,6 +48,21 @@ function initCanvas() {
     this.ctx.font = "20px Arial";
     
     document.body.appendChild(this.canvas);
+}
+
+function update() {
+
+    var lis = ["A", "B", "X", "Y", "LB", "RB", "LT", "RT",
+    "Back", "Start","LeftThumbClick", "RightThumbClick", "D-pad Up", 
+       "D-pad Down", "D-pad Left", "D-Pad Right" ];
+    for (var btn = 0; btn < lis.length; btn++)
+    {
+        console.log(this.gamePad);
+        if(this.input.isButtonPressed(lis[btn]))
+        {
+        console.log(lis[btn], "Pressed");
+        }
+    }
 }
 
 function draw() {
