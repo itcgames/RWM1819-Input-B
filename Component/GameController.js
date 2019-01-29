@@ -55,6 +55,7 @@
     //Takes in a string
     isButtonPressed(button)
     {
+      console.log(this.current[button]);
       return this.current[button];
     }
 
@@ -84,7 +85,7 @@
       this.current["D-Pad Down"] = this.gpd.buttons[13].pressed;
       this.current["D-Pad Left"] = this.gpd.buttons[14].pressed;
       this.current["D-Pad Right"] = this.gpd.buttons[15].pressed;
-      this.current["Button 16"] = this.gpd.buttons[16].pressed;
+     // this.current["Button 16"] = this.gpd.buttons[16].pressed;
 
       let xL = this.gpd.axes[0];
       let yL = this.gpd.axes[1];
@@ -137,13 +138,5 @@
         v /= (1.0 - dz);
 
         return v; 
-    
-
-
-
-
-
-
     }
-
  }

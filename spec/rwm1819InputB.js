@@ -138,3 +138,79 @@ describe('getMousePos', function () {
   });
 
 });
+
+
+describe('isButtonPressed', function () {
+  it('exists', function () {
+    if(typeof isButtonPressed === "function")
+    {
+      isButtonPressed();
+      expect(true);
+    }
+    else{
+      expect(false);
+    }
+  });
+
+});
+
+
+
+
+describe('getKeyPad', function () {
+  it('exists', function () {
+    if(typeof getKeyPad === "function")
+    {
+      getKeyPad();
+      expect(true);
+    }
+    else{
+      expect(false);
+    }
+  });
+
+});
+
+
+
+describe('setHoldValue', function () {
+  it('exists', function () {
+    if(typeof setHoldValue === "function")
+    {
+      setHoldValue();
+      expect(true);
+    }
+    else{
+      expect(false);
+    }
+  });
+
+});
+
+describe('addKeyHandler', function () {
+  it('exists', function () {
+    if(typeof addKeyHandler === "function")
+    {
+      addKeyHandler();
+      expect(true);
+    }
+    else{
+      expect(false);
+    }
+  });
+
+});
+
+describe('addUpdateLoop', function () {
+  it('exists', function () {
+    if(typeof addUpdateLoop === "function")
+    {
+      addUpdateLoop();
+      expect(true);
+    }
+    else{
+      expect(false);
+    }
+  });
+
+});
